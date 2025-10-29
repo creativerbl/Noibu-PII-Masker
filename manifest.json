@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "PII Masker for Noibu Console",
+  "version": "1.0",
+  "description": "Masks specified text and CSS selectors in Noibu console session replays.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://console.noibu.com/*"],
+      "js": ["content.js"],
+      "all_frames": true
+    }
+  ],
+
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
