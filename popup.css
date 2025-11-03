@@ -41,3 +41,12 @@ button {
 .removeBtn:hover {
   background-color: #c0392b;
 }
+
+.entry input {
+  width: 100%;
+  min-width: 0;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+body { width: 360px; } /* optional: make the popup a bit wider */
+
