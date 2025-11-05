@@ -7,6 +7,16 @@
 </head>
 <body>
   <h2>PII Masker</h2>
+  <div class="url-section">
+    <label for="urlInput">Allowed URLs</label>
+    <div class="url-input-row">
+      <input id="urlInput" type="text" placeholder="https://example.com" autocomplete="off">
+      <button id="addUrl" type="button">➕ Add URL</button>
+    </div>
+    <p id="urlError" role="alert"></p>
+    <div id="urlList" aria-live="polite"></div>
+    <p id="urlHint">Add at least one URL before creating masking rules.</p>
+  </div>
   <div id="entries"></div>
   <button id="addEntry">➕ Add Entry</button>
   <div class="mode-toggle" role="radiogroup" aria-label="Processing mode">

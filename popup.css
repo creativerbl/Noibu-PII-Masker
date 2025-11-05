@@ -9,6 +9,90 @@ h2 {
   margin-bottom: 12px;
 }
 
+.url-section {
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 12px;
+  background: #f8fafc;
+}
+
+.url-section label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.url-input-row {
+  display: flex;
+  gap: 6px;
+}
+
+#urlInput {
+  flex: 1;
+  padding: 6px 8px;
+}
+
+#addUrl {
+  width: auto;
+  padding: 6px 10px;
+  font-weight: 600;
+}
+
+#urlError {
+  color: #b91c1c;
+  font-size: 12px;
+  min-height: 16px;
+  margin: 6px 0 0;
+}
+
+#urlList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.url-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  font-size: 13px;
+  word-break: break-all;
+}
+
+.url-item button {
+  width: auto;
+  background: none;
+  border: none;
+  color: #c0392b;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.url-item button:hover {
+  color: #922b21;
+}
+
+.url-empty {
+  font-size: 13px;
+  color: #6b7280;
+  font-style: italic;
+  padding-left: 2px;
+}
+
+#urlHint {
+  font-size: 12px;
+  color: #475569;
+  margin-top: 6px;
+}
+
 .entry {
   display: grid;
   grid-template-columns: 120px 1fr 32px;
@@ -30,6 +114,12 @@ h2 {
 button {
   margin-top: 5px;
   width: 100%;
+}
+
+#addEntry.disabled,
+#addEntry:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .controls {
