@@ -213,9 +213,40 @@ function processShadowRoots(root, targets, mode) {
   });
 }
 
+function normalizeUrlForMatch(raw) {
+  if (!raw) return null;
+  try {
+    const parsed = new URL(raw, window.location.origin);
+    if (!['http:', 'https:'].includes(parsed.protocol)) return null;
+    let pathname = parsed.pathname || '/';
+    if (pathname !== '/') {
+      pathname = pathname.replace(/\/+$/, '');
+    } else {
+      pathname = '';
+    }
+    return `${parsed.origin}${pathname}`;
+  } catch (err) {
+    return null;
+  }
+}
+
+function pageMatchesSavedUrls(urls) {
+  if (!Array.isArray(urls) || urls.length === 0) return false;
+  const current = normalizeUrlForMatch(window.location.href);
+  if (!current) return false;
+
+  return urls.some((stored) => {
+    const normalized = normalizeUrlForMatch(stored);
+    if (!normalized) return false;
+    if (current === normalized) return true;
+    return current.startsWith(`${normalized}/`);
+  });
+}
+
 // Initialize: run on main doc, shadow DOMs, and iframes
-chrome.storage.sync.get(["entries", "active", "mode"], (data) => {
+chrome.storage.sync.get(["entries", "active", "mode", "urls"], (data) => {
   if (!data || !data.active || !data.entries || data.entries.length === 0) return;
+  if (!pageMatchesSavedUrls(data.urls)) return;
 
   const mode = data.mode === "replace" ? "replace" : "mask";
   const targets = data.entries
