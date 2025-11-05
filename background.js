@@ -1,3 +1,3 @@
 chrome.runtime.onInstalled.addListener(() => {
-  chrome.storage.sync.set({ entries: [], active: false });
+  chrome.storage.sync.set({ entries: [], active: false, mode: 'mask' });
 });

@@ -9,6 +9,16 @@
   <h2>PII Masker</h2>
   <div id="entries"></div>
   <button id="addEntry">➕ Add Entry</button>
+  <div class="mode-toggle" role="radiogroup" aria-label="Processing mode">
+    <label class="mode-option">
+      <input type="radio" name="mode" value="mask">
+      <span>Mask</span>
+    </label>
+    <label class="mode-option">
+      <input type="radio" name="mode" value="replace">
+      <span>Replace</span>
+    </label>
+  </div>
   <div class="controls">
     <button id="toggleOn">🟢 ON</button>
     <button id="toggleOff">🔴 OFF</button>
